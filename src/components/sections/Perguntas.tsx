@@ -8,8 +8,7 @@ export function Perguntas() {
       <div className="grid gap-12 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-5">
           <TituloSecao capitular="Perguntas frequentes">
-            Sobre o
-            <br className="hidden sm:block" /> atendimento.
+            Sobre o atendimento.
           </TituloSecao>
           <p className="mt-6 max-w-[40ch] text-nota text-tinta-tenue">
             As respostas tratam do funcionamento do atendimento. Questões sobre um caso concreto

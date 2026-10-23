@@ -114,7 +114,7 @@ export default async function PaginaArtigo({ params }: Props) {
                   <li key={item.slug}>
                     <Link
                       href={`/conteudos/${item.slug}`}
-                      className="font-display text-lg leading-snug transition-colors hover:text-verde"
+                      className="font-display text-lg font-medium leading-snug transition-colors hover:text-verde"
                     >
                       {item.titulo}
                     </Link>

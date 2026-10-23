@@ -47,8 +47,8 @@ export function SiteHeader({ navegacao }: { navegacao: ItemNavegacao[] }) {
         rolou || menuAberto ? 'bg-papel border-b border-linha' : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-site items-center justify-between gap-6 px-gutter py-4 md:py-5">
-        <MarcaLink altura={42} className="shrink-0" />
+      <div className="mx-auto flex max-w-site items-center justify-between gap-6 px-gutter py-4 md:py-6">
+        <MarcaLink altura={58} className="h-11 w-auto shrink-0 md:h-[3.625rem]" />
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
           {navegacao.map((item) => {

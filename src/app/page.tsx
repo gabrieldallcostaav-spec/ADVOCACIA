@@ -39,8 +39,7 @@ export default function Home() {
                 capitular="Atuação"
                 descricao="Quatro frentes atendidas diretamente, com escopo definido antes do início do trabalho."
               >
-                Áreas em que
-                <br className="hidden sm:block" /> atuo.
+                Áreas em que atuo.
               </TituloSecao>
               <Botao href="/atuacao" variante="texto">
                 Ver o índice completo

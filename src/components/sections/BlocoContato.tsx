@@ -13,8 +13,7 @@ export function BlocoContato() {
             Contato
           </span>
           <h2 className="mt-5 text-[clamp(1.875rem,1.3rem+2.3vw,3rem)]">
-            Informações sobre
-            <br className="hidden sm:block" /> atendimento.
+            Informações sobre atendimento.
           </h2>
           <p className="mt-6 max-w-[46ch] text-papel/70">
             Descreva a questão em linhas gerais. O retorno traz a orientação sobre o agendamento da

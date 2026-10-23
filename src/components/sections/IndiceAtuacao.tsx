@@ -27,7 +27,7 @@ export function IndiceAtuacao({ areas }: { areas: Area[] }) {
                 {String(indice + 1).padStart(2, '0')}
               </span>
               <span className="flex-1">
-                <span className="block font-display text-[clamp(1.375rem,1.1rem+1.1vw,1.875rem)] leading-tight transition-colors group-hover:text-verde">
+                <span className="block font-display text-[clamp(1.4375rem,1.15rem+1.15vw,1.9375rem)] font-medium leading-snug transition-colors group-hover:text-verde">
                   {area.titulo}
                 </span>
                 <span className="mt-2 block max-w-[46ch] text-[0.9375rem] leading-relaxed text-tinta-suave">
@@ -48,7 +48,7 @@ export function IndiceAtuacao({ areas }: { areas: Area[] }) {
       <div aria-hidden className="hidden md:col-span-5 md:block">
         <div className="sticky top-28 rounded-[2rem] bg-papel-fundo p-9">
           <span className="capitular text-tinta-tenue">Em resumo</span>
-          <p className="mt-5 font-display text-2xl leading-tight">{areaAtiva.titulo}</p>
+          <p className="mt-5 font-display text-2xl font-medium leading-snug">{areaAtiva.titulo}</p>
           <ul className="mt-6 space-y-3 text-[0.9375rem] text-tinta-suave">
             {areaAtiva.situacoes.slice(0, 4).map((situacao) => (
               <li key={situacao} className="flex gap-3">

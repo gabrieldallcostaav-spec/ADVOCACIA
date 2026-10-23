@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link
           rel="preload"
-          href="/fonts/bodoni-moda-latin.woff2"
+          href="/fonts/playfair-display-latin.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

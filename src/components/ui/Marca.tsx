@@ -31,6 +31,11 @@ export function Marca({
   const { w, h, arquivo } = proporcoes[versao];
   const largura = Math.round((w / h) * altura);
 
+  // Quando o chamador controla a altura por classe (ex.: tamanho diferente no
+  // celular e no desktop), o estilo inline sairia na frente — então não é
+  // aplicado. Os atributos width/height continuam reservando a proporção.
+  const alturaPorClasse = /(^|\s)(h-|md:h-|lg:h-)/.test(className);
+
   return (
     // eslint-disable-next-line @next/next/no-img-element -- SVG da marca: sem otimização nem reprocessamento de cor.
     <img
@@ -39,7 +44,7 @@ export function Marca({
       width={largura}
       height={altura}
       className={className}
-      style={{ height: altura, width: largura }}
+      style={alturaPorClasse ? undefined : { height: altura, width: largura }}
     />
   );
 }
@@ -54,8 +59,9 @@ export function MarcaLink({
   className?: string;
 }) {
   return (
-    <Link href="/" aria-label={`${site.marca} — página inicial`} className={`inline-flex ${className}`}>
-      <Marca versao={versao} altura={altura} />
+    <Link href="/" aria-label={`${site.marca} — página inicial`} className="inline-flex">
+      {/* As classes vão para a imagem: é ela que precisa da altura. */}
+      <Marca versao={versao} altura={altura} className={className} />
     </Link>
   );
 }

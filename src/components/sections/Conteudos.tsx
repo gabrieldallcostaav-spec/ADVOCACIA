@@ -17,8 +17,7 @@ export function Conteudos({ artigos }: { artigos: Artigo[] }) {
     <Secao>
       <div className="flex flex-wrap items-end justify-between gap-6">
         <TituloSecao capitular="Conteúdos" descricao="Textos informativos sobre procedimentos e critérios jurídicos.">
-          Para compreender
-          <br className="hidden sm:block" /> antes de decidir.
+          Para compreender antes de decidir.
         </TituloSecao>
         <Botao href="/conteudos" variante="texto">
           Ver todos os conteúdos
@@ -49,7 +48,7 @@ export function Conteudos({ artigos }: { artigos: Artigo[] }) {
                     <span className="capitular text-verde">{artigo.categoria}</span>
                     {artigo.status === 'rascunho' ? <SeloModelo /> : null}
                   </div>
-                  <h3 className="mt-3 font-display text-xl leading-snug transition-colors group-hover:text-verde">
+                  <h3 className="mt-3 font-display text-xl font-medium leading-snug transition-colors group-hover:text-verde">
                     {artigo.titulo}
                   </h3>
                   <p className="mt-2 text-nota text-tinta-tenue">{formatarData(artigo.publicadoEm)}</p>

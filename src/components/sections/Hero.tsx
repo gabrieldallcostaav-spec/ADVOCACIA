@@ -21,7 +21,7 @@ export function Hero() {
               Advocacia em {site.cidadeBase}/{site.uf}
             </h1>
 
-            <p className="entrada entrada-2 mt-7 font-display text-[clamp(2.25rem,1.45rem+2.9vw,3.375rem)] leading-[1.08] tracking-[-0.02em]">
+            <p className="entrada entrada-2 mt-7 font-display text-[clamp(2.125rem,1.4rem+2.4vw,3rem)] leading-[1.1] font-medium tracking-[-0.01em]">
               Clareza para compreender.
               <br />
               <span className="text-verde">Critério</span> para decidir.

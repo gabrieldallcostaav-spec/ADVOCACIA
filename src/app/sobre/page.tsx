@@ -68,7 +68,7 @@ export default function Sobre() {
         <dl className="mt-12 grid gap-10 sm:grid-cols-2 md:gap-12">
           {perfil.comoTrabalho.map((item) => (
             <div key={item.titulo}>
-              <dt className="flex items-center gap-3 font-display text-xl">
+              <dt className="flex items-center gap-3 font-display text-xl font-medium">
                 <span aria-hidden className="h-px w-6 bg-verde" />
                 {item.titulo}
               </dt>

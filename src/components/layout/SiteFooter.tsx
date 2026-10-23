@@ -13,7 +13,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-site px-gutter py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Marca versao="horizontal-branco" altura={46} />
+            <Marca versao="horizontal-branco" altura={56} />
             <p className="mt-6 max-w-[34ch] text-[0.9375rem] leading-relaxed text-papel/60">
               {site.nomeCompleto}
               <br />
