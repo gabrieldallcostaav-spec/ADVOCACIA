@@ -3,6 +3,8 @@ import '@/styles/globals.css';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { AvisoPrevia } from '@/components/layout/AvisoPrevia';
+import { AssistenteDeNavegacao } from '@/components/ui/AssistenteDeNavegacao';
+import { opcoesDoAssistente } from '@/content/assistente';
 import { navegacaoPrincipal } from '@/lib/navegacao';
 import { JsonLd, dadosEstruturadosDoSite, robosDaPagina, urlBase } from '@/lib/seo';
 import { site } from '@/config/site';
@@ -60,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader navegacao={navegacaoPrincipal()} />
         <main id="conteudo">{children}</main>
         <SiteFooter />
+        {site.assistenteDeNavegacao ? <AssistenteDeNavegacao opcoes={opcoesDoAssistente()} /> : null}
         <JsonLd dados={dadosEstruturadosDoSite()} />
       </body>
     </html>

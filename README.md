@@ -48,6 +48,10 @@ gerado e o site fica indexável. Veja `.env.example`.
 | `src/content/areas/index.ts` | Áreas de atuação: textos, situações, perguntas, ordem e status. |
 | `src/content/perfil.ts` | Biografia, etapas do atendimento e perguntas frequentes. |
 | `src/content/articles/*.md` | Artigos, em Markdown com front matter. |
+| `src/content/guias/*.md` | Guias práticos, mesmo formato dos artigos. |
+| `src/content/necessidades.ts` | Navegação por assunto, na linguagem do visitante. |
+| `src/content/links.ts` | Ordem e conteúdo da página `/links`. |
+| `src/content/assistente.ts` | Perguntas e respostas do assistente de navegação. |
 | `src/content/revisoes.ts` | Datas de última revisão usadas no `lastmod` do sitemap. |
 | `src/styles/globals.css` | Tokens de cor, tipografia e espaçamento. |
 | `public/brand/` | Versões do logotipo em SVG, extraídas dos vetores originais. |
@@ -79,3 +83,10 @@ Passo a passo das edições mais comuns: `docs/MANUTENCAO.md`.
 - `docs/MAPA_DE_CONSULTAS.md` — matriz de consultas e páginas de destino.
 - `docs/PAUTA_EDITORIAL.md` — pauta inicial de conteúdos.
 - `docs/DEPLOY_CLOUDFLARE.md` — publicação no Cloudflare e domínio próprio.
+- `docs/ESCOPO_E_FASES.md` — o que está implementado, verificado, pendente ou desativado.
+- `docs/MIDIA_E_ROTEIRO.md` — fotografia aplicada e roteiro do vídeo.
+- `docs/AGENDAMENTO_E_CONTATOS.md` — fase 2: especificação e dependências.
+- `docs/CONTAS_E_RECUPERACAO.md` — inventário de contas, sem segredos.
+- `docs/MONITORAMENTO_E_BACKUP.md` — verificações e recuperação.
+- `docs/TESTES_COM_USUARIOS.md` — roteiro de teste, ainda não aplicado.
+- `docs/ASSISTENTE_DE_NAVEGACAO.md` — assistente determinístico, desativado.

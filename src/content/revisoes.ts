@@ -15,5 +15,9 @@ export const revisoes: Record<string, string> = {
   '/atuacao/direito-do-consumidor': '2026-10-23',
   '/contato': '2026-10-23',
   '/conteudos': '2026-10-23',
+  '/guias': '2026-10-23',
+  '/cartao': '2026-10-23',
+  '/links': '2026-10-23',
+  '/canais-oficiais': '2026-10-23',
   '/privacidade': '2026-10-23',
 };

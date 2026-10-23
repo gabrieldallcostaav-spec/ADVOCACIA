@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlocoContato } from '@/components/sections/BlocoContato';
+import { PorNecessidade } from '@/components/sections/PorNecessidade';
 import { Secao } from '@/components/ui/Secao';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
 import { areasPublicadas, notaParcerias } from '@/content/areas';
@@ -62,6 +63,10 @@ export default function Atuacao() {
         </ul>
 
         <p className="mt-10 max-w-[58ch] text-nota text-tinta-tenue">{notaParcerias}</p>
+      </Secao>
+
+      <Secao className="bg-papel-fundo/50" espacamento="normal">
+        <PorNecessidade />
       </Secao>
 
       <BlocoContato />

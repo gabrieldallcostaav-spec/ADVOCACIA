@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { areasPublicadas } from '@/content/areas';
 import { artigosPublicados } from '@/lib/articles';
+import { guiasPublicados } from '@/lib/guias';
 import { revisoes } from '@/content/revisoes';
 import { modoPrevia } from '@/config/site';
 import { url } from '@/lib/seo';
@@ -13,13 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (modoPrevia) return [];
 
   const artigos = artigosPublicados();
-  const caminhos: string[] = ['/', '/sobre', '/contato', '/privacidade'];
+  const guias = guiasPublicados();
+  const caminhos: string[] = ['/', '/sobre', '/contato', '/cartao', '/canais-oficiais', '/privacidade'];
 
   if (areasPublicadas.length > 0) {
     caminhos.push('/atuacao', ...areasPublicadas.map((area) => `/atuacao/${area.slug}`));
   }
   if (artigos.length > 0) {
     caminhos.push('/conteudos');
+  }
+  if (guias.length > 0) {
+    caminhos.push('/guias');
   }
 
   const paginas = caminhos.map((caminho) => ({
@@ -36,7 +41,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...paginas, ...publicacoes];
+  const materiais = guias.map((guia) => ({
+    url: url(`/guias/${guia.slug}`),
+    lastModified: guia.atualizadoEm ?? guia.publicadoEm,
+    changeFrequency: 'yearly' as const,
+    priority: 0.6,
+  }));
+
+  return [...paginas, ...publicacoes, ...materiais];
 }
 
 // Necessário para o build estático (`output: 'export'`).

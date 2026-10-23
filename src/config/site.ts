@@ -28,6 +28,8 @@ export type SiteConfig = {
   marca: string;
   nomeCompleto: string;
   nomeApresentacao: string;
+  /** Sobrenome de família, usado no campo N da vCard. */
+  nomeFamilia: string;
   oab: string;
   cidadeBase: string;
   uf: string;
@@ -52,7 +54,27 @@ export type SiteConfig = {
     perfilRetrato: string | null;
     /** Página /sobre. */
     sobreRetrato: string | null;
+    /** Cartão profissional digital. */
+    cartaoRetrato: string | null;
   };
+  /**
+   * Vídeo de apresentação. Enquanto `arquivo` for null, o player não é
+   * renderizado — nada de controle quebrado na tela.
+   */
+  video: {
+    arquivo: string | null;
+    capa: string | null;
+    /** Faixa de legendas WebVTT. Obrigatória para publicar o vídeo. */
+    legendas: string | null;
+    /** Caminho da transcrição em texto, exibida junto ao vídeo. */
+    transcricao: string | null;
+    duracaoSegundos: number | null;
+  };
+  /**
+   * Assistente de navegação (fase 3). Desativado até revisão do responsável.
+   * Quando ligado, responde apenas com conteúdo já publicado no site.
+   */
+  assistenteDeNavegacao: boolean;
   /**
    * Confirmações do responsável. Enquanto falsas, o site não afirma
    * atendimento ativo nem anuncia modalidades não verificadas.
@@ -71,6 +93,7 @@ export const site: SiteConfig = {
   marca: 'Dalla Costa Advocacia',
   nomeCompleto: 'Gabriel Santos Dalla Costa',
   nomeApresentacao: 'Gabriel Dalla Costa',
+  nomeFamilia: 'Dalla Costa',
   oab: 'OAB/RO 13.552',
   cidadeBase: 'Ariquemes',
   uf: 'RO',
@@ -91,7 +114,19 @@ export const site: SiteConfig = {
     heroRetrato: '/images/retrato-hero.jpg',
     perfilRetrato: '/images/retrato-alternativo.jpg',
     sobreRetrato: '/images/retrato-sobre.jpg',
+    cartaoRetrato: '/images/retrato-sobre.jpg',
   },
+
+  // PENDENTE: vídeo real aprovado. Roteiro em docs/MIDIA_E_ROTEIRO.md.
+  video: {
+    arquivo: null,
+    capa: null,
+    legendas: null,
+    transcricao: null,
+    duracaoSegundos: null,
+  },
+
+  assistenteDeNavegacao: false,
 
   atendimentoAtivo: true,
   atendimentoPorVideoconferencia: true,

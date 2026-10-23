@@ -50,6 +50,21 @@ Três retratos foram recebidos e distribuídos para não repetir a mesma imagem:
 Para trocar qualquer uma delas, veja `docs/MANUTENCAO.md`, seção 2. Os três
 campos ficam em `site.fotos`: `heroRetrato`, `perfilRetrato` e `sobreRetrato`.
 
+## 3.2 Fases 2 e 3
+
+O escopo ampliado (agendamento, área interna de contatos, assistente) está em
+`docs/ESCOPO_E_FASES.md`, com a matriz do que foi implementado, verificado,
+desativado ou bloqueado. O resumo:
+
+- **Agendamento e área interna:** especificados, não implementados. Dependem de
+  infraestrutura e, principalmente, das regras de consulta que só você define.
+  Ver `docs/AGENDAMENTO_E_CONTATOS.md`.
+- **Assistente de navegação:** implementado e desligado até sua aprovação das
+  respostas. Ver `docs/ASSISTENTE_DE_NAVEGACAO.md`.
+- **Vídeo:** componente pronto, arquivo pendente. Roteiro rascunhado em
+  `docs/MIDIA_E_ROTEIRO.md`.
+- **Testes com pessoas:** roteiro pronto, **nenhum teste realizado**.
+
 ## 4. Conteúdo escrito que precisa da sua revisão
 
 Todos os textos do site foram redigidos para este projeto e **precisam de leitura
@@ -62,6 +77,10 @@ perante a OAB.
 | `src/content/perfil.ts` | Biografia, “como o trabalho é conduzido”, etapas do atendimento, perguntas frequentes gerais. |
 | `src/components/sections/Hero.tsx` | Slogan e parágrafo de abertura. |
 | `src/app/privacidade/page.tsx` | Política de privacidade, escrita para corresponder exatamente ao que o site faz. |
+| `src/content/necessidades.ts` | Rótulos de assunto da navegação por necessidades. |
+| `src/content/guias/` | Guia de demonstração, em rascunho. |
+| `src/app/canais-oficiais/page.tsx` | Orientação sobre verificação de canais e prevenção a fraude. |
+| `src/content/assistente.ts` | Respostas do assistente de navegação. |
 
 ## 5. O que deliberadamente **não** está no site
 

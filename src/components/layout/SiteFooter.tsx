@@ -55,6 +55,16 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/canais-oficiais" className="text-papel/80 transition-colors hover:text-verde-claro">
+                  Canais oficiais
+                </Link>
+              </li>
+              <li>
+                <Link href="/cartao" className="text-papel/80 transition-colors hover:text-verde-claro">
+                  Cartão profissional
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacidade" className="text-papel/80 transition-colors hover:text-verde-claro">
                   Privacidade
                 </Link>

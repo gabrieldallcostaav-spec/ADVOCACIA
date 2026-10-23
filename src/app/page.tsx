@@ -4,6 +4,7 @@ import { FaixaIdentificacao } from '@/components/sections/FaixaIdentificacao';
 import { IndiceAtuacao } from '@/components/sections/IndiceAtuacao';
 import { Perfil } from '@/components/sections/Perfil';
 import { Atendimento } from '@/components/sections/Atendimento';
+import { VideoApresentacao } from '@/components/sections/VideoApresentacao';
 import { Conteudos } from '@/components/sections/Conteudos';
 import { Perguntas } from '@/components/sections/Perguntas';
 import { BlocoContato } from '@/components/sections/BlocoContato';
@@ -53,7 +54,7 @@ export default function Home() {
       ) : null}
 
       <Perfil />
-
+      <VideoApresentacao />
       <Atendimento />
       <Conteudos artigos={artigos} />
       <Perguntas />

@@ -1,5 +1,6 @@
 import { areasPublicadas } from '@/content/areas';
 import { artigosVisiveis } from '@/lib/articles';
+import { guiasVisiveis } from '@/lib/guias';
 import type { ItemNavegacao } from '@/components/layout/SiteHeader';
 
 /** A navegação só mostra seções que existem de fato. */
@@ -8,6 +9,7 @@ export function navegacaoPrincipal(): ItemNavegacao[] {
 
   if (areasPublicadas.length > 0) itens.push({ href: '/atuacao', rotulo: 'Atuação' });
   if (artigosVisiveis().length > 0) itens.push({ href: '/conteudos', rotulo: 'Conteúdos' });
+  if (guiasVisiveis().length > 0) itens.push({ href: '/guias', rotulo: 'Guias' });
 
   return itens;
 }
