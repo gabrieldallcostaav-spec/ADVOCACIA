@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { CanaisDeContato } from '@/components/ui/CanaisDeContato';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
 import { site } from '@/config/site';
@@ -41,13 +41,7 @@ export default function CanaisOficiais() {
   return (
     <>
       <Secao>
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">Canais oficiais</span>
-        </nav>
+        <Migalhas itens={[{ rotulo: 'Início', href: '/' }, { rotulo: 'Canais oficiais' }]} />
 
         <div className="mt-12 grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-7">

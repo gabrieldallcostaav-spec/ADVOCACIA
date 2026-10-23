@@ -19,9 +19,18 @@ Tudo o que o deploy precisa já está no repositório:
 1. Confira `docs/CONTEUDO_E_PENDENCIAS.md`.
 2. O domínio `advocaciadallacosta.com.br` precisa estar registrado e sob sua
    conta Cloudflare (seção *Domínio próprio*, mais abaixo).
-3. A variável `NEXT_PUBLIC_MODO_PREVIA` precisa valer `false` no build de
-   produção. **É o passo que mais passa despercebido:** sem ele o site publicado
-   fica com a faixa de prévia e com `noindex` em todas as páginas.
+3. A variável `NEXT_PUBLIC_MODO_PREVIA` controla o ambiente:
+
+   | Situação | Valor | Efeito |
+   | --- | --- | --- |
+   | Site ainda em `*.workers.dev`, domínio não apontado | `true` | Faixa de prévia, `noindex` e rastreamento bloqueado. |
+   | Domínio definitivo já respondendo | `false` | Site público e indexável. |
+
+   **Use `true` enquanto o endereço for `workers.dev`.** O domínio anunciado em
+   `/canais-oficiais`, o canonical e o QR Code do cartão apontam para
+   `advocaciadallacosta.com.br`: publicar sem a flag faz o endereço divulgado
+   divergir do endereço que está servindo a página. Troque para `false` no mesmo
+   momento em que o domínio próprio entrar no ar.
 
 ## Caminho A — pelo painel, conectado ao GitHub (recomendado)
 

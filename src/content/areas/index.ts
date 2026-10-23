@@ -33,8 +33,7 @@ export const areas: Area[] = [
   {
     slug: 'direito-civil-e-contratos',
     titulo: 'Direito Civil e Contratos',
-    resumo:
-      'Relações patrimoniais, obrigações e responsabilidade civil, da redação do contrato à discussão judicial.',
+    resumo: 'Contratos, obrigações, dívidas e responsabilidade civil.',
     descricao:
       'A maior parte das questões civis começa antes do conflito: num contrato mal redigido, numa obrigação sem prova de cumprimento, num prejuízo que ninguém documentou. A atuação cobre as duas pontas — organizar o documento para evitar a disputa e conduzir a disputa quando ela já existe.',
     situacoes: [
@@ -67,8 +66,7 @@ export const areas: Area[] = [
   {
     slug: 'direito-de-familia-e-sucessoes',
     titulo: 'Direito de Família e Sucessões',
-    resumo:
-      'Divórcio, guarda, alimentos, inventário e partilha, com atenção ao que a decisão significa para a família.',
+    resumo: 'Divórcio, guarda, alimentos, inventário e partilha.',
     descricao:
       'São processos em que a técnica jurídica resolve uma parte do problema e a condução resolve a outra. A orientação é explicar as alternativas com honestidade, inclusive quando o caminho mais sensato é o acordo, e conduzir o procedimento sem ampliar o desgaste entre as pessoas envolvidas.',
     situacoes: [
@@ -102,8 +100,7 @@ export const areas: Area[] = [
   {
     slug: 'direito-administrativo',
     titulo: 'Direito Administrativo',
-    resumo:
-      'Relações entre o cidadão, a empresa e a administração pública: atos, contratos, licitações e processos.',
+    resumo: 'Licitações, contratos públicos e processos administrativos.',
     descricao:
       'A administração pública decide por procedimento, e procedimento tem forma, prazo e motivação. Boa parte das questões administrativas se resolve demonstrando onde a forma não foi observada — no processo administrativo, antes de chegar ao Judiciário.',
     situacoes: [
@@ -136,8 +133,7 @@ export const areas: Area[] = [
   {
     slug: 'direito-do-consumidor',
     titulo: 'Direito do Consumidor',
-    resumo:
-      'Produtos, serviços, bancos, planos de saúde e contratos de consumo com cláusulas discutíveis.',
+    resumo: 'Compras, serviços, cobranças e relações de consumo.',
     descricao:
       'A relação de consumo tem regras próprias de prova, prazo e responsabilidade. Saber qual delas se aplica à situação muda o que se pode exigir e de quem — do fornecedor direto, da instituição financeira ou da operadora.',
     situacoes: [

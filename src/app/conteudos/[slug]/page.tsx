@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Botao } from '@/components/ui/Botao';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { SeloModelo } from '@/components/ui/Selo';
 import { BlocoContato } from '@/components/sections/BlocoContato';
@@ -54,15 +55,11 @@ export default async function PaginaArtigo({ params }: Props) {
     <>
       <Secao>
         <div className="mx-auto max-w-leitura">
-          <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-            <Link href="/" className="transition-colors hover:text-verde">
-              Início
-            </Link>
-            <span aria-hidden className="mx-2">·</span>
-            <Link href="/conteudos" className="transition-colors hover:text-verde">
-              Conteúdos
-            </Link>
-          </nav>
+          <Migalhas itens={[
+              { rotulo: 'Início', href: '/' },
+              { rotulo: 'Conteúdos', href: '/conteudos' },
+              { rotulo: artigo.titulo },
+            ]} />
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <span className="capitular text-verde">{artigo.categoria}</span>

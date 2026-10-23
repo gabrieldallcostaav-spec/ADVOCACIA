@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlocoContato } from '@/components/sections/BlocoContato';
 import { Botao } from '@/components/ui/Botao';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { SeloModelo } from '@/components/ui/Selo';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
@@ -47,15 +47,11 @@ export default async function PaginaGuia({ params }: Props) {
     <>
       <Secao>
         <div className="mx-auto max-w-leitura">
-          <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-            <Link href="/" className="transition-colors hover:text-verde">
-              Início
-            </Link>
-            <span aria-hidden className="mx-2">·</span>
-            <Link href="/guias" className="transition-colors hover:text-verde">
-              Guias
-            </Link>
-          </nav>
+          <Migalhas itens={[
+              { rotulo: 'Início', href: '/' },
+              { rotulo: 'Guias', href: '/guias' },
+              { rotulo: guia.titulo },
+            ]} />
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <span className="capitular text-verde">Guia</span>

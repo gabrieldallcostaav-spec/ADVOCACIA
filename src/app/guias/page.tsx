@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlocoContato } from '@/components/sections/BlocoContato';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { SeloModelo } from '@/components/ui/Selo';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
@@ -22,13 +23,7 @@ export default function Guias() {
   return (
     <>
       <Secao>
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">Guias</span>
-        </nav>
+        <Migalhas itens={[{ rotulo: 'Início', href: '/' }, { rotulo: 'Guias' }]} />
 
         <div className="mt-12 max-w-[46rem]">
           <h1 className="text-[clamp(2.25rem,1.5rem+3vw,3.75rem)]">Guias práticos</h1>

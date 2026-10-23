@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Botao } from '@/components/ui/Botao';
+import { BotaoWhatsapp } from '@/components/ui/BotaoWhatsapp';
 import { Marca } from '@/components/ui/Marca';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { BlocoContato } from '@/components/sections/BlocoContato';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
@@ -21,25 +23,34 @@ export default function Sobre() {
   return (
     <>
       <Secao>
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">Perfil</span>
-        </nav>
+        <Migalhas itens={[{ rotulo: 'Início', href: '/' }, { rotulo: 'Perfil' }]} />
 
         <div className="mt-12 grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-7">
             <h1 className="text-[clamp(2.25rem,1.5rem+3vw,3.75rem)]">{site.nomeApresentacao}</h1>
-            <p className="mt-4 text-nota text-tinta-tenue">
+            <p className="mt-4 text-[0.875rem] text-tinta-tenue">
               {site.nomeCompleto} · {site.oab} · {site.cidadeBase}/{site.uf}
             </p>
-            <div className="mt-9 max-w-[58ch] space-y-5 text-[1.0625rem] leading-relaxed text-tinta-suave">
+            <div className="mt-9 max-w-[56ch] space-y-5 text-[1.0625rem] leading-relaxed text-tinta-suave">
               {perfil.biografia.map((paragrafo) => (
                 <p key={paragrafo}>{paragrafo}</p>
               ))}
             </div>
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <BotaoWhatsapp />
+            </div>
+
+            <p className="mt-7 max-w-[48ch] text-[0.875rem] leading-relaxed text-tinta-tenue">
+              A inscrição pode ser conferida de forma independente nos serviços da OAB —{' '}
+              <Link
+                href="/canais-oficiais"
+                className="underline decoration-verde underline-offset-[0.3em] transition-colors hover:text-verde"
+              >
+                veja como
+              </Link>
+              .
+            </p>
           </div>
 
           <div className="md:col-span-5">

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { MarcaLink } from '@/components/ui/Marca';
-import { Botao } from '@/components/ui/Botao';
+import { BotaoWhatsapp } from '@/components/ui/BotaoWhatsapp';
 
 export type ItemNavegacao = {
   href: string;
@@ -58,17 +58,19 @@ export function SiteHeader({ navegacao }: { navegacao: ItemNavegacao[] }) {
                 key={item.href}
                 href={item.href}
                 aria-current={ativo ? 'page' : undefined}
-                className={`text-[0.9375rem] transition-colors hover:text-verde ${
-                  ativo ? 'text-verde' : 'text-tinta-suave'
+                className={`relative text-[0.9375rem] transition-colors hover:text-verde ${
+                  ativo ? 'text-tinta' : 'text-tinta-suave'
                 }`}
               >
                 {item.rotulo}
+                {/* A página ativa não é indicada só pela cor. */}
+                {ativo ? (
+                  <span aria-hidden className="absolute -bottom-1.5 left-0 h-px w-full bg-verde" />
+                ) : null}
               </Link>
             );
           })}
-          <Botao href="/contato" variante="contorno" className="min-h-[2.5rem] px-5 text-sm">
-            Contato
-          </Botao>
+          <BotaoWhatsapp variante="solido" className="min-h-[2.5rem] px-5 text-sm" rotulo="WhatsApp" />
         </nav>
 
         <button
@@ -116,9 +118,7 @@ export function SiteHeader({ navegacao }: { navegacao: ItemNavegacao[] }) {
               {item.rotulo}
             </Link>
           ))}
-          <Botao href="/contato" className="my-4 self-start">
-            Contato
-          </Botao>
+          <BotaoWhatsapp className="my-4 self-start" />
         </nav>
       </div>
     </header>

@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { Acordeao } from '@/components/ui/Acordeao';
 import { BlocoContato } from '@/components/sections/BlocoContato';
 import { Botao } from '@/components/ui/Botao';
+import { BotaoWhatsapp } from '@/components/ui/BotaoWhatsapp';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
 import { areasPublicadas, buscarArea } from '@/content/areas';
@@ -37,17 +39,11 @@ export default async function PaginaArea({ params }: Props) {
   return (
     <>
       <Secao>
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <Link href="/atuacao" className="transition-colors hover:text-verde">
-            Atuação
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">{area.titulo}</span>
-        </nav>
+        <Migalhas itens={[
+            { rotulo: 'Início', href: '/' },
+            { rotulo: 'Atuação', href: '/atuacao' },
+            { rotulo: area.titulo },
+          ]} />
 
         <div className="mt-12 grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-7">
@@ -75,10 +71,13 @@ export default async function PaginaArea({ params }: Props) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-7 text-nota text-tinta-tenue">
+              <p className="mt-7 text-[0.875rem] leading-relaxed text-tinta-tenue">
                 A lista é informativa. O enquadramento de uma situação concreta depende de análise
                 individual.
               </p>
+              <div className="mt-7 border-t border-linha pt-7">
+                <BotaoWhatsapp variante="contorno" />
+              </div>
             </div>
           </div>
         </div>

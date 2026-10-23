@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { metadadosDaPagina } from '@/lib/seo';
 import { canaisDisponiveis } from '@/components/ui/CanaisDeContato';
@@ -18,13 +19,7 @@ export default function Privacidade() {
   return (
     <Secao espacamento="amplo">
       <div className="mx-auto max-w-leitura">
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">Privacidade</span>
-        </nav>
+        <Migalhas itens={[{ rotulo: 'Início', href: '/' }, { rotulo: 'Privacidade' }]} />
 
         <h1 className="mt-10 text-[clamp(2rem,1.4rem+2.6vw,3.25rem)]">Política de privacidade</h1>
         <p className="mt-5 text-nota text-tinta-tenue">Última atualização: {atualizacao}</p>

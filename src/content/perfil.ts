@@ -13,11 +13,11 @@ export const perfil = {
     'A orientação é explicar o que está em discussão em linguagem compreensível, dizer com honestidade o que a documentação sustenta e delimitar o que pode ser feito — inclusive quando a resposta é que não vale a pena litigar.',
   ],
 
+  /** Abertura curta. O detalhamento do método vive em `comoTrabalho`. */
   biografia: [
-    'Gabriel Santos Dalla Costa é advogado inscrito na Ordem dos Advogados do Brasil, Seção de Rondônia, sob o nº 13.552, com atuação em Ariquemes e região.',
-    'A prática é individual e conduzida diretamente pelo advogado. Cada questão começa pela leitura dos documentos e pela reconstituição dos fatos antes de qualquer definição de estratégia — é esse exame que determina o que se pode pedir, com que fundamento e com que grau de segurança.',
-    'A comunicação com quem contrata é parte do trabalho, não um acessório dele. Termos técnicos são explicados, prazos são informados, e a avaliação sobre as chances de um pedido é apresentada como ela é, sem promessa de resultado. Quando a solução mais sensata não é a judicial, essa também é a orientação dada.',
-    'Demandas que excedem as áreas atendidas diretamente são avaliadas caso a caso e, quando pertinente, conduzidas em conjunto com advogados parceiros.',
+    'Advogado inscrito na Ordem dos Advogados do Brasil, Seção de Rondônia, sob o nº 13.552, com atuação em Ariquemes e região.',
+    'A prática é individual: quem analisa o caso é quem conduz o processo, do primeiro contato à conclusão. Não há intermediação entre o cliente e o advogado.',
+    'Demandas fora das áreas atendidas diretamente são avaliadas caso a caso e, quando pertinente, conduzidas em conjunto com advogados parceiros.',
   ],
 
   comoTrabalho: [
@@ -48,22 +48,17 @@ export const etapasAtendimento = [
   {
     titulo: 'Contato inicial',
     texto:
-      'Você entra em contato pelos canais disponíveis e informa, em linhas gerais, qual é a questão. Nesse momento não é necessário enviar documentos.',
+      'Você informa, em linhas gerais, qual é a questão. Nesse momento não é necessário enviar documentos nem detalhar o caso.',
   },
   {
-    titulo: 'Consulta',
+    titulo: 'Consulta e análise',
     texto:
-      'A consulta é agendada, presencial em Ariquemes ou por videoconferência, e os documentos pertinentes são indicados previamente.',
+      'A consulta é agendada, presencial em Ariquemes ou por videoconferência, com os documentos indicados previamente. Na consulta, os fatos e a documentação são examinados para identificar o que está em discussão e quais caminhos existem.',
   },
   {
-    titulo: 'Análise individual',
+    titulo: 'Escopo, se houver contratação',
     texto:
-      'Os documentos e os fatos são examinados para identificar o que está em discussão, quais caminhos existem e quais são os limites de cada um.',
-  },
-  {
-    titulo: 'Escopo e próximos passos',
-    texto:
-      'Havendo contratação, o que será feito, os prazos e as responsabilidades de cada parte são alinhados por escrito.',
+      'A consulta não obriga a contratar. Havendo contratação, o que será feito, os prazos e as responsabilidades de cada parte ficam alinhados por escrito antes do início do trabalho.',
   },
 ];
 
@@ -96,6 +91,6 @@ export const perguntasFrequentes = [
   {
     pergunta: 'Em quanto tempo recebo retorno?',
     resposta:
-      'O retorno é dado assim que possível dentro do horário de atendimento. O site não garante resposta imediata e os canais de contato não devem ser usados para questões com prazo em curso sem a confirmação de que a mensagem foi recebida.',
+      'O site não estabelece prazo de resposta e não garante retorno imediato. Se a sua questão tem prazo em curso, não conte com a mensagem como aviso: confirme por telefone que ela foi recebida.',
   },
 ];

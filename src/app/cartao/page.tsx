@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AcoesCartao } from '@/components/ui/AcoesCartao';
+import { BotaoWhatsapp } from '@/components/ui/BotaoWhatsapp';
 import { Marca } from '@/components/ui/Marca';
 import { QrCode } from '@/components/ui/QrCode';
 import { canaisDisponiveis } from '@/components/ui/CanaisDeContato';
@@ -39,7 +40,7 @@ export default async function Cartao() {
 
             <div className="px-7 py-8">
               <h1 className="text-[clamp(1.75rem,1.4rem+1.6vw,2.25rem)]">{site.nomeCompleto}</h1>
-              <p className="mt-3 text-nota text-tinta-tenue">
+              <p className="mt-3 text-[0.875rem] leading-relaxed text-tinta-tenue">
                 Advogado · {site.oab}
                 <br />
                 {site.cidadeBase}/{site.uf}
@@ -48,9 +49,15 @@ export default async function Cartao() {
                   : ''}
               </p>
 
-              {canais.length > 0 ? (
-                <ul className="mt-7 grid gap-3">
-                  {canais.map((canal) => (
+              <div className="mt-8">
+                <BotaoWhatsapp className="w-full" />
+              </div>
+
+              {canais.length > 1 ? (
+                <ul className="mt-4 grid gap-3">
+                  {canais
+                    .filter((canal) => canal.rotulo !== 'WhatsApp')
+                    .map((canal) => (
                     <li key={canal.rotulo}>
                       <a
                         href={canal.href}
@@ -84,8 +91,11 @@ export default async function Cartao() {
                 </a>
               ) : null}
 
-              <div className="mt-8">
-                <AcoesCartao url={enderecoDoCartao} />
+              <div className="mt-8 border-t border-linha pt-7">
+                <p className="capitular text-tinta-tenue">Utilidades</p>
+                <div className="mt-4">
+                  <AcoesCartao url={enderecoDoCartao} />
+                </div>
               </div>
             </div>
 

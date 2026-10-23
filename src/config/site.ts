@@ -152,6 +152,18 @@ export function linkWhatsapp(): string | null {
   return `https://wa.me/${numero}?text=${encodeURIComponent(site.mensagemWhatsapp)}`;
 }
 
+/** (69) 9 8104-3945 — formato legível para exibir ao visitante. */
+export function whatsappFormatado(): string | null {
+  if (!site.whatsapp) return null;
+  const numero = site.whatsapp.replace(/\D/g, '');
+  const casa = /^55(\d{2})(\d{4,5})(\d{4})$/.exec(numero);
+  if (!casa) return null;
+  const [, ddd, prefixo, sufixo] = casa;
+  return prefixo.length === 5
+    ? `(${ddd}) ${prefixo[0]} ${prefixo.slice(1)}-${sufixo}`
+    : `(${ddd}) ${prefixo}-${sufixo}`;
+}
+
 export function linkEmail(): string | null {
   return site.email ? `mailto:${site.email}` : null;
 }

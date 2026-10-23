@@ -15,7 +15,7 @@ export function Atendimento() {
         Do primeiro contato à definição do escopo.
       </TituloSecao>
 
-      <ol className="mt-14 grid gap-px overflow-hidden rounded-[2rem] bg-linha sm:grid-cols-2">
+      <ol className="mt-14 grid gap-px overflow-hidden rounded-[2rem] bg-linha md:grid-cols-3">
         {etapasAtendimento.map((etapa, indice) => (
           <li key={etapa.titulo} className="bg-papel p-8 md:p-10">
             <span className="capitular text-verde tabular-nums">{String(indice + 1).padStart(2, '0')}</span>
@@ -26,8 +26,8 @@ export function Atendimento() {
       </ol>
 
       <p className="mt-8 max-w-[62ch] text-nota text-tinta-tenue">
-        As etapas descrevem o procedimento de atendimento. Não representam promessa de resultado,
-        de prazo de resposta ou de êxito em qualquer medida judicial.
+        As etapas descrevem o procedimento. Não representam promessa de resultado, de prazo de
+        resposta ou de êxito em qualquer medida judicial.
       </p>
     </Secao>
   );

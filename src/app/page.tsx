@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { FaixaIdentificacao } from '@/components/sections/FaixaIdentificacao';
+import { Assinatura } from '@/components/sections/Assinatura';
 import { IndiceAtuacao } from '@/components/sections/IndiceAtuacao';
 import { Perfil } from '@/components/sections/Perfil';
 import { Atendimento } from '@/components/sections/Atendimento';
@@ -53,6 +54,7 @@ export default function Home() {
         </Secao>
       ) : null}
 
+      <Assinatura />
       <Perfil />
       <VideoApresentacao />
       <Atendimento />

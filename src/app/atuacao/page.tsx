@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlocoContato } from '@/components/sections/BlocoContato';
 import { PorNecessidade } from '@/components/sections/PorNecessidade';
+import { Migalhas } from '@/components/ui/Migalhas';
 import { Secao } from '@/components/ui/Secao';
 import { JsonLd, metadadosDaPagina, migalhas } from '@/lib/seo';
 import { areasPublicadas, notaParcerias } from '@/content/areas';
@@ -20,13 +21,7 @@ export default function Atuacao() {
   return (
     <>
       <Secao>
-        <nav aria-label="Trilha de navegação" className="capitular text-tinta-tenue">
-          <Link href="/" className="transition-colors hover:text-verde">
-            Início
-          </Link>
-          <span aria-hidden className="mx-2">·</span>
-          <span aria-current="page">Atuação</span>
-        </nav>
+        <Migalhas itens={[{ rotulo: 'Início', href: '/' }, { rotulo: 'Atuação' }]} />
 
         <div className="mt-12 max-w-[46rem]">
           <h1 className="text-[clamp(2.25rem,1.5rem+3vw,3.75rem)]">

@@ -1,47 +1,53 @@
 import { Botao } from '@/components/ui/Botao';
+import { BotaoWhatsapp } from '@/components/ui/BotaoWhatsapp';
 import { Marca } from '@/components/ui/Marca';
+import { areasPublicadas } from '@/content/areas';
 import { site } from '@/config/site';
 
 /**
- * Primeira dobra. Sem fotografia aprovada, a coluna visual usa a composição
- * da própria marca sobre fundo escuro — nunca um retrato genérico no lugar
- * de Gabriel. Quando `site.fotos.heroRetrato` for preenchido, o retrato
- * assume o mesmo espaço.
+ * Primeira dobra.
+ *
+ * Ordem deliberada: quem é, o que atende, onde e como falar. O slogan saiu
+ * daqui para a faixa de assinatura mais abaixo — a abertura precisa explicar
+ * o escopo, não só dar o tom.
  */
 export function Hero() {
   const retrato = site.fotos.heroRetrato;
+  const nomesDasAreas = areasPublicadas.map((area) => area.titulo);
+  const modalidade =
+    site.atendimentoAtivo && site.atendimentoPorVideoconferencia
+      ? 'Consultas presenciais e por videoconferência, com análise individual da questão apresentada.'
+      : 'Análise individual da questão apresentada.';
 
   return (
     <section className="relative">
-      <div className="mx-auto max-w-site px-gutter pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20">
+      <div className="mx-auto max-w-site px-gutter pt-10 pb-16 md:pt-14 md:pb-24">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
           <div className="md:col-span-7">
-            <h1 className="entrada entrada-1 font-sans text-[0.875rem] font-medium tracking-[0.16em] text-tinta-suave uppercase md:text-[0.9375rem]">
+            <p className="entrada entrada-1 text-[0.875rem] font-medium tracking-[0.1em] text-tinta-suave uppercase">
               <span aria-hidden className="mr-3 inline-block h-px w-8 translate-y-[-0.3em] bg-verde" />
-              Advocacia em {site.cidadeBase}/{site.uf}
+              {site.nomeApresentacao} · {site.oab}
+            </p>
+
+            <h1 className="entrada entrada-2 mt-6 text-[clamp(2rem,1.35rem+2.1vw,2.75rem)] leading-[1.12]">
+              Advocacia em {site.cidadeBase}.
+              <br />
+              <span className="text-verde">Atendimento direto</span> com o advogado.
             </h1>
 
-            <p className="entrada entrada-2 mt-7 font-display text-[clamp(2.125rem,1.4rem+2.4vw,3rem)] leading-[1.1] font-medium tracking-[-0.01em]">
-              Clareza para compreender.
-              <br />
-              <span className="text-verde">Critério</span> para decidir.
+            <p className="entrada entrada-3 mt-7 max-w-[48ch] text-[1.0625rem] leading-relaxed text-tinta-suave md:text-[1.125rem]">
+              Atuação em {nomesDasAreas.slice(0, -1).join(', ')} e {nomesDasAreas.at(-1)}.
+            </p>
+            <p className="entrada entrada-3 mt-3 max-w-[48ch] text-[1.0625rem] leading-relaxed text-tinta-suave md:text-[1.125rem]">
+              {modalidade}
             </p>
 
-            <p className="entrada entrada-3 mt-8 max-w-[44ch] text-[1.0625rem] leading-relaxed text-tinta-suave md:text-[1.125rem]">
-              Atuação jurídica com análise individual de cada caso e comunicação direta, do primeiro
-              contato até a conclusão da questão.
-            </p>
-
-            <div className="entrada entrada-3 mt-10 flex flex-wrap items-center gap-4">
-              <Botao href="/atuacao">Conheça a atuação</Botao>
-              <Botao href="/contato" variante="contorno">
-                Contato
+            <div className="entrada entrada-3 mt-9 flex flex-wrap items-center gap-4">
+              <BotaoWhatsapp />
+              <Botao href="/atuacao" variante="contorno">
+                Áreas de atuação
               </Botao>
             </div>
-
-            <p className="entrada entrada-3 mt-10 border-t border-linha pt-6 text-nota text-tinta-tenue">
-              {site.nomeCompleto} · {site.oab}
-            </p>
           </div>
 
           <div className="entrada entrada-3 md:col-span-5">

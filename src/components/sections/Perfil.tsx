@@ -39,7 +39,7 @@ export function Perfil() {
             <h2 className="mt-5 text-[clamp(1.875rem,1.3rem+2.3vw,2.75rem)]">
               {site.nomeApresentacao}
             </h2>
-            <p className="mt-4 text-nota text-tinta-tenue">
+            <p className="mt-4 text-[0.875rem] leading-relaxed text-tinta-tenue">
               {site.oab}
               <br />
               {site.cidadeBase}/{site.uf}
@@ -55,7 +55,7 @@ export function Perfil() {
                 Perfil
               </span>
               <h2 className="mt-5 text-[clamp(1.875rem,1.3rem+2.3vw,3rem)]">{site.nomeApresentacao}</h2>
-              <p className="mt-3 text-nota text-tinta-tenue">
+              <p className="mt-3 text-[0.875rem] text-tinta-tenue">
                 {site.oab} · {site.cidadeBase}/{site.uf}
               </p>
             </>
