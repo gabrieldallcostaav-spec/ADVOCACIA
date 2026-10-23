@@ -24,7 +24,7 @@ export function BarraContatoMobile() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-linha bg-papel/95 backdrop-blur-sm transition-transform duration-300 md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-linha bg-papel transition-transform duration-300 md:hidden ${
         visivel ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}

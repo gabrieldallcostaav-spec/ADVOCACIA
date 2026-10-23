@@ -45,15 +45,16 @@ export function Hero() {
           </div>
 
           <div className="entrada entrada-3 md:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-[20rem] md:max-w-none">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[20rem] md:max-w-none">
               {retrato ? (
                 // eslint-disable-next-line @next/next/no-img-element -- retrato otimizado na origem; sem loader remoto.
                 <img
                   src={retrato}
                   alt={`Retrato de ${site.nomeApresentacao}, advogado`}
-                  width={720}
-                  height={900}
-                  className="h-full w-full rounded-[2.5rem] object-cover object-top"
+                  width={1066}
+                  height={1600}
+                  fetchPriority="high"
+                  className="h-full w-full rounded-[2.5rem] bg-escuro object-cover object-center"
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center rounded-[2.5rem] bg-escuro px-10">

@@ -181,7 +181,7 @@ Organiza o trabalho. **Não é promessa de posição em 90 dias.**
 
 | Período | Ações | Evidência |
 | --- | --- | --- |
-| Dias 1–15 | Preencher WhatsApp, e-mail e domínio; revisar e aprovar os textos; conferir situação cadastral na OAB/RO; executar a pesquisa de consultas localmente. | Config preenchida, textos aprovados, mapa de consultas com evidência. |
+| Dias 1–15 | Registrar e apontar o domínio; revisar e aprovar os textos; conferir situação cadastral na OAB/RO; executar a pesquisa de consultas localmente. | Domínio no ar, textos aprovados, mapa de consultas com evidência. |
 | Dias 16–30 | Publicar com `NEXT_PUBLIC_MODO_PREVIA=false`; verificar domínio no Search Console; enviar sitemap; avaliar elegibilidade do Perfil da Empresa. | Build publicado, URLs respondendo, sitemap aceito, perfil criado ou pendência registrada. |
 | Dias 31–60 | Publicar 2 textos revisados das áreas prioritárias; reforçar links internos; corrigir o que o Search Console apontar. | URLs publicadas e primeiro relatório de impressões. |
 | Dias 61–90 | Revisar consultas e páginas; atualizar textos fracos; decidir sobre teste pago só com orçamento aprovado. | Relatório de achados e lista priorizada. |
@@ -206,8 +206,10 @@ ninguém pode prometer citação. Nada disso foi implementado como requisito.
 
 ## 13. Checklist de publicação
 
-- [ ] WhatsApp e e-mail reais preenchidos em `src/config/site.ts`.
-- [ ] `dominio` apontando para o domínio definitivo, sem barra final.
+- [x] WhatsApp real preenchido em `src/config/site.ts`.
+- [ ] E-mail profissional preenchido (opcional, mas recomendado).
+- [x] `dominio` apontando para `https://advocaciadallacosta.com.br`.
+- [ ] Domínio registrado, apontado para a hospedagem e com HTTPS ativo.
 - [ ] Textos de áreas, perfil, FAQ e privacidade revisados e aprovados por você.
 - [ ] Situação cadastral na OAB/RO conferida.
 - [ ] `NEXT_PUBLIC_MODO_PREVIA=false` no ambiente de produção.

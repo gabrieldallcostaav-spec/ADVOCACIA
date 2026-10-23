@@ -44,7 +44,7 @@ export function SiteHeader({ navegacao }: { navegacao: ItemNavegacao[] }) {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        rolou || menuAberto ? 'bg-papel/95 backdrop-blur-sm border-b border-linha' : 'bg-transparent border-b border-transparent'
+        rolou || menuAberto ? 'bg-papel border-b border-linha' : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-site items-center justify-between gap-6 px-gutter py-4 md:py-5">

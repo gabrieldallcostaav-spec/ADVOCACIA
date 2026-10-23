@@ -11,7 +11,7 @@ import { site } from '@/config/site';
  * vazia esperando por uma fotografia.
  */
 export function Perfil() {
-  const retrato = site.fotos.sobreRetrato ?? site.fotos.heroRetrato;
+  const retrato = site.fotos.perfilRetrato ?? site.fotos.sobreRetrato;
 
   return (
     <Secao>
@@ -23,10 +23,10 @@ export function Perfil() {
               <img
                 src={retrato}
                 alt={`${site.nomeApresentacao}, advogado`}
-                width={640}
-                height={768}
+                width={1066}
+                height={1600}
                 loading="lazy"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </div>

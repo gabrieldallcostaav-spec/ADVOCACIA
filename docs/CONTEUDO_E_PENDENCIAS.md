@@ -14,28 +14,41 @@ Situação em 23 de outubro de 2026.
 | Outras áreas | Avaliadas caso a caso e conduzidas em parceria — publicado como nota discreta, sem anunciar especialidade |
 | Disponibilidade | Apto e disponível para atender |
 | Modalidades | Presencial em Ariquemes/RO e por videoconferência |
+| WhatsApp | (69) 9 8104-3945 — gravado como `5569981043945` |
+| Domínio | `advocaciadallacosta.com.br` |
+| Retratos | Três fotografias profissionais recebidas e aplicadas |
 
 ## 2. Pendências que impedem a publicação
 
-| # | Pendência | Onde entra | Por que trava |
+| # | Pendência | Onde entra | Por que importa |
 | --- | --- | --- | --- |
-| 1 | **Número de WhatsApp** (formato internacional, ex.: `5569999999999`) | `src/config/site.ts` → `whatsapp` | Sem ele nenhum link é gerado. O site não inventa destinatário: a página de contato fica sem canal. |
-| 2 | **E-mail profissional** | `src/config/site.ts` → `email` | Mesmo motivo. |
-| 3 | **Domínio definitivo** | `src/config/site.ts` → `dominio` | Alimenta canonical, sitemap e imagem de compartilhamento. O valor atual é um palpite e precisa ser corrigido antes do build de produção. |
-| 4 | **Provedor de hospedagem** | `src/config/site.ts` → `provedorHospedagem` | Citado na política de privacidade. Enquanto `null`, a frase correspondente não aparece. |
+| 1 | **E-mail profissional** | `src/config/site.ts` → `email` | Enquanto for `null`, o e-mail não aparece em lugar nenhum. O WhatsApp já funciona, então o site tem canal — mas um e-mail é o segundo caminho esperado por quem prefere escrever. |
+| 2 | **Provedor de hospedagem** | `src/config/site.ts` → `provedorHospedagem` | Citado na política de privacidade. Enquanto `null`, a frase correspondente simplesmente não aparece. |
 
-Sem os itens 1 e 2 o site não deve ir ao ar: um site de advocacia sem canal de
-contato válido não cumpre a própria função.
+O site já tem canal de contato válido (WhatsApp) e pode ir ao ar sem o e-mail —
+mas vale incluí-lo antes de publicar.
 
 ## 3. Pendências que não travam, mas melhoram muito
 
 | # | Pendência | Observação |
 | --- | --- | --- |
-| 5 | **Retrato profissional** | Dois enquadramentos verticais 4:5: um para a primeira dobra (maior) e um para a página de perfil. Ver `docs/DIRECAO_VISUAL.md`, seção 5. Nenhum rosto foi gerado nem substituído. |
-| 6 | **Endereço do escritório** | Só preencher se houver atendimento presencial em endereço próprio e verificável. Endereço de correspondência ou coworking sem operação real não deve ser publicado — compromete também o Perfil da Empresa no Google. |
-| 7 | **Horários de atendimento** | Exibidos na página de contato quando preenchidos. |
-| 8 | **Telefone fixo ou celular para ligação** | Opcional; entra como terceiro canal. |
-| 9 | **Perfis oficiais** (ex.: LinkedIn) | Entram em `redes` e no `sameAs` do JSON-LD. Só perfis reais e atualizados. |
+| 3 | **Endereço do escritório** | Só preencher se houver atendimento presencial em endereço próprio e verificável. Endereço de correspondência ou coworking sem operação real não deve ser publicado — compromete também o Perfil da Empresa no Google. |
+| 4 | **Horários de atendimento** | Exibidos na página de contato quando preenchidos. |
+| 5 | **Telefone fixo ou celular para ligação** | Opcional; entra como terceiro canal. |
+| 6 | **Perfis oficiais** (ex.: LinkedIn) | Entram em `redes` e no `sameAs` do JSON-LD. Só perfis reais e atualizados. |
+
+## 3.1 Fotografias aplicadas
+
+Três retratos foram recebidos e distribuídos para não repetir a mesma imagem:
+
+| Arquivo | Onde aparece | Observação |
+| --- | --- | --- |
+| `public/images/retrato-hero.jpg` | Primeira dobra da home | Retrato em preto e branco, mãos entrelaçadas. É a imagem de maior peso do site e também compõe a imagem de compartilhamento. |
+| `public/images/retrato-alternativo.jpg` | Seção de apresentação na home | Retrato sentado, terno azul. |
+| `public/images/retrato-sobre.jpg` | Página `/sobre` | Retrato sorrindo, terno azul. |
+
+Para trocar qualquer uma delas, veja `docs/MANUTENCAO.md`, seção 2. Os três
+campos ficam em `site.fotos`: `heroRetrato`, `perfilRetrato` e `sobreRetrato`.
 
 ## 4. Conteúdo escrito que precisa da sua revisão
 

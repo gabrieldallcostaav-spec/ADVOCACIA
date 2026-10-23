@@ -52,7 +52,8 @@ Passo a passo das edições mais comuns: `docs/MANUTENCAO.md`.
 
 ## Publicação
 
-1. Preencher WhatsApp, e-mail e domínio em `src/config/site.ts`.
+1. Conferir contatos e domínio em `src/config/site.ts` (WhatsApp e domínio já
+   preenchidos; e-mail ainda pendente).
 2. Conferir `docs/CONTEUDO_E_PENDENCIAS.md` — nada pendente deve ir ao ar.
 3. Definir `NEXT_PUBLIC_MODO_PREVIA=false` no ambiente de produção.
 4. `npm run build` e publicar em qualquer hospedagem com suporte a Next.js

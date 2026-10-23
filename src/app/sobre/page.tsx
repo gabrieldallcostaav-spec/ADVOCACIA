@@ -49,8 +49,8 @@ export default function Sobre() {
                 <img
                   src={retrato}
                   alt={`${site.nomeApresentacao}, advogado`}
-                  width={640}
-                  height={768}
+                  width={1066}
+                  height={1600}
                   className="h-full w-full object-cover object-top"
                 />
               ) : (

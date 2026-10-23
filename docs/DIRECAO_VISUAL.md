@@ -93,15 +93,22 @@ entreletra, ecoando o “ADVOCACIA” do logotipo.
 
 ## 5. Fotografia
 
-Não há fotografia aprovada. Em vez de uma moldura vazia ou de um retrato
-genérico, a primeira dobra e a página de perfil usam um painel escuro com o
-lockup vertical em negativo — uma composição de marca deliberada.
+Três retratos profissionais, todos em fundo escuro, distribuídos em posições
+distintas para não repetir a mesma imagem:
 
-Quando o retrato chegar, basta preencher `site.fotos.heroRetrato` e
-`site.fotos.sobreRetrato`: os componentes trocam o painel pela fotografia no
-mesmo espaço, com recorte `object-top` para preservar o rosto em telas estreitas.
-Direção recomendada: retrato real, enquadramento vertical 4:5, luz suave,
-tratamento sóbrio, fundo neutro, olhar voltado para o centro da composição.
+- **Primeira dobra:** retrato em preto e branco, mãos entrelaçadas, proporção
+  3:4. O preto e branco conversa com a tinta quase preta da marca e deixa o
+  verde como único ponto de cor da tela — foi escolhido por isso.
+- **Apresentação na home:** retrato sentado, terno azul, proporção 5:6.
+- **Página de perfil:** retrato sorrindo, terno azul, proporção 5:6, ancorado
+  no topo para preservar o rosto em telas estreitas.
+
+O mesmo retrato em preto e branco compõe a imagem de compartilhamento
+(`public/opengraph-image.png`), ao lado do logotipo e do slogan.
+
+Os campos ficam em `site.fotos`. Qualquer um em `null` devolve aquela posição ao
+painel escuro com o lockup vertical em negativo — nenhuma moldura vazia e nenhum
+rosto genérico em lugar nenhum.
 
 ## 6. Movimento
 

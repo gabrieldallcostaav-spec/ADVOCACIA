@@ -46,7 +46,11 @@ export type SiteConfig = {
    * tipográfica da marca no lugar da fotografia — sem rosto genérico.
    */
   fotos: {
+    /** Primeira dobra da home. */
     heroRetrato: string | null;
+    /** Seção de apresentação na home. */
+    perfilRetrato: string | null;
+    /** Página /sobre. */
     sobreRetrato: string | null;
   };
   /**
@@ -71,23 +75,22 @@ export const site: SiteConfig = {
   cidadeBase: 'Ariquemes',
   uf: 'RO',
 
-  // PENDENTE: substituir pelo domínio definitivo antes de publicar.
-  dominio: 'https://www.dallacostaadvocacia.com.br',
+  dominio: 'https://advocaciadallacosta.com.br',
 
-  // PENDENTE: informar os canais reais. Enquanto forem null, o site não
-  // exibe link de WhatsApp nem endereço de e-mail.
-  whatsapp: null,
+  // 55 (país) + 69 (DDD) + número.
+  whatsapp: '5569981043945',
   mensagemWhatsapp: 'Olá, gostaria de informações sobre o atendimento.',
+  // PENDENTE: e-mail profissional. Enquanto for null, o canal não aparece.
   email: null,
   telefone: null,
   endereco: null,
   horarios: null,
   redes: [],
 
-  // PENDENTE: fotografia profissional real. Ver docs/CONTEUDO_E_PENDENCIAS.md.
   fotos: {
-    heroRetrato: null,
-    sobreRetrato: null,
+    heroRetrato: '/images/retrato-hero.jpg',
+    perfilRetrato: '/images/retrato-alternativo.jpg',
+    sobreRetrato: '/images/retrato-sobre.jpg',
   },
 
   atendimentoAtivo: true,

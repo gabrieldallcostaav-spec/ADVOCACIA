@@ -24,21 +24,33 @@ fica para trás. Nunca escreva um número de exemplo.
 
 ## 2. Colocar o retrato e ajustar o enquadramento
 
-1. Salve as imagens em `public/images/`, por exemplo `retrato-hero.jpg` e
-   `retrato-sobre.jpg`. Exporte em torno de 1440 px de largura, qualidade 80.
-2. Em `src/config/site.ts`:
+São três posições independentes:
 
 ```ts
 fotos: {
-  heroRetrato: '/images/retrato-hero.jpg',
-  sobreRetrato: '/images/retrato-sobre.jpg',
+  heroRetrato: '/images/retrato-hero.jpg',          // primeira dobra da home
+  perfilRetrato: '/images/retrato-alternativo.jpg', // apresentação na home
+  sobreRetrato: '/images/retrato-sobre.jpg',        // página /sobre
 },
 ```
 
-O painel de marca sai e a fotografia entra no mesmo espaço. O recorte usa
-`object-top` para não cortar o rosto em telas estreitas. Para mudar o
-enquadramento, troque `object-top` por `object-center` em
-`src/components/sections/Hero.tsx` e `src/app/sobre/page.tsx`.
+1. Salve a imagem em `public/images/`. Vertical, em torno de 1200 px de largura,
+   qualidade 80. Os arquivos atuais têm 1066 × 1600 px e cerca de 100 KB cada.
+2. Aponte o campo correspondente para o novo caminho.
+
+Qualquer campo em `null` faz aquela posição voltar ao painel de marca — nunca a
+uma moldura vazia.
+
+**Enquadramento.** Cada posição tem uma proporção e um ponto de ancoragem:
+
+| Posição | Proporção | Ancoragem | Arquivo |
+| --- | --- | --- | --- |
+| Hero | 3:4 | `object-center` | `src/components/sections/Hero.tsx` |
+| Apresentação | 5:6 | `object-center` | `src/components/sections/Perfil.tsx` |
+| Perfil | 5:6 | `object-top` | `src/app/sobre/page.tsx` |
+
+Se a cabeça ficar cortada depois de trocar a foto, alterne entre `object-top`,
+`object-center` e `object-bottom` no arquivo indicado.
 
 ## 3. Adicionar ou remover uma área de atuação
 
