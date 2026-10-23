@@ -38,3 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...paginas, ...publicacoes];
 }
+
+// Necessário para o build estático (`output: 'export'`).
+export const dynamic = 'force-static';

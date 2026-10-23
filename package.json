@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:cloudflare": "EXPORTAR_ESTATICO=true next build && node cloudflare/limpar-rotas-404.mjs && cp cloudflare/_headers out/_headers",
+    "preview:cloudflare": "npm run build:cloudflare && wrangler dev",
+    "deploy": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {
     "marked": "^18.1.1",
@@ -23,6 +26,7 @@
     "eslint": "^9.39.0",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "^4.152.0"
   }
 }

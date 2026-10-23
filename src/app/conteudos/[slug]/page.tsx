@@ -12,13 +12,18 @@ import {
   buscarArtigo,
   formatarData,
   renderizarMarkdown,
+  todosOsArtigos,
 } from '@/lib/articles';
 import { site } from '@/config/site';
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return artigosVisiveis().map((artigo) => ({ slug: artigo.slug }));
+  const visiveis = artigosVisiveis();
+  // O build estático exige ao menos uma rota; sem nada publicado, geramos os
+  // slugs existentes e a própria página devolve 404 para cada um deles.
+  const base = visiveis.length > 0 ? visiveis : todosOsArtigos();
+  return base.map((artigo) => ({ slug: artigo.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

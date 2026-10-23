@@ -106,6 +106,18 @@ export function artigosVisiveis(): Artigo[] {
   return modoPrevia ? carregar() : artigosPublicados();
 }
 
+/**
+ * Todos os arquivos, publicados ou não.
+ *
+ * Usado só pelo build estático: `output: 'export'` exige que
+ * `generateStaticParams` devolva ao menos uma rota. Quando não há nada
+ * publicado, a rota é gerada mesmo assim e a página responde 404 — que é
+ * exatamente o comportamento desejado para um rascunho.
+ */
+export function todosOsArtigos(): Artigo[] {
+  return carregar();
+}
+
 export function buscarArtigo(slug: string): Artigo | undefined {
   return artigosVisiveis().find((artigo) => artigo.slug === slug);
 }

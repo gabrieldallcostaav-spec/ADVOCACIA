@@ -23,12 +23,21 @@ const securityHeaders = [
   },
 ];
 
+/**
+ * Build estático para Cloudflare Workers (`npm run build:cloudflare`).
+ *
+ * No modo export o Next não executa `headers()` — quem aplica os cabeçalhos de
+ * segurança é o arquivo `cloudflare/_headers`, copiado para `out/` pelo script
+ * de build. Os dois precisam ser mantidos em sincronia.
+ */
+const exportarEstatico = process.env.EXPORTAR_ESTATICO === 'true';
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  async headers() {
-    return [{ source: '/:path*', headers: securityHeaders }];
-  },
+  ...(exportarEstatico
+    ? { output: 'export' as const, images: { unoptimized: true } }
+    : { headers: async () => [{ source: '/:path*', headers: securityHeaders }] }),
 };
 
 export default nextConfig;

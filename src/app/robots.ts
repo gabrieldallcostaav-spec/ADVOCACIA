@@ -15,3 +15,6 @@ export default function robots(): MetadataRoute.Robots {
     host: url('/'),
   };
 }
+
+// Necessário para o build estático (`output: 'export'`).
+export const dynamic = 'force-static';
