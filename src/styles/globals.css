@@ -114,6 +114,11 @@
     }
   }
 
+  :target {
+    /* O cabeçalho é fixo: sem isto, navegar por âncora esconde o título. */
+    scroll-margin-top: 8.5rem;
+  }
+
   h1,
   h2,
   h3 {

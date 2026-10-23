@@ -87,6 +87,19 @@ export type SiteConfig = {
   provedorHospedagem: string | null;
   /** Analytics: desabilitado nesta versão. */
   analyticsHabilitado: boolean;
+  /**
+   * Fatos operacionais citados na política de privacidade.
+   *
+   * Enquanto forem null, a página explica o critério aplicável sem afirmar
+   * prazos ou pessoas que não foram confirmados. Preenchidos, passam a aparecer
+   * com a precisão informada. Nunca preencher com exemplo.
+   */
+  privacidade: {
+    /** Prazos concretos de conservação, um por linha. */
+    prazosDeConservacao: string[] | null;
+    /** Quem, além do advogado, tem acesso às mensagens recebidas. */
+    quemTemAcesso: string | null;
+  };
 };
 
 export const site: SiteConfig = {
@@ -135,6 +148,12 @@ export const site: SiteConfig = {
   // PENDENTE: informar o provedor escolhido (ex.: 'Vercel') ao publicar.
   provedorHospedagem: null,
   analyticsHabilitado: false,
+
+  // PENDENTE: confirmar com o responsável. Ver docs/PRIVACIDADE_PENDENCIAS.md.
+  privacidade: {
+    prazosDeConservacao: null,
+    quemTemAcesso: null,
+  },
 };
 
 /**
@@ -145,12 +164,20 @@ export const modoPrevia = process.env.NEXT_PUBLIC_MODO_PREVIA !== 'false';
 
 export const identificacao = `${site.nomeCompleto} · ${site.oab} · ${site.cidadeBase}/${site.uf}`;
 
-export function linkWhatsapp(): string | null {
+/**
+ * Link do WhatsApp. A mensagem inicial é sempre neutra: nunca entra relato do
+ * caso, dado pessoal ou conteúdo de formulário na URL.
+ */
+export function linkWhatsapp(mensagem: string = site.mensagemWhatsapp): string | null {
   if (!site.whatsapp) return null;
   const numero = site.whatsapp.replace(/\D/g, '');
   if (numero.length < 12) return null;
-  return `https://wa.me/${numero}?text=${encodeURIComponent(site.mensagemWhatsapp)}`;
+  return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 }
+
+/** Mensagem inicial para assuntos de proteção de dados. */
+export const mensagemPrivacidade =
+  'Olá. Gostaria de informações sobre o tratamento dos meus dados pessoais.';
 
 /** (69) 9 8104-3945 — formato legível para exibir ao visitante. */
 export function whatsappFormatado(): string | null {

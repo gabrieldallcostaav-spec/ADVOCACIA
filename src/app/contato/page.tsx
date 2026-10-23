@@ -140,16 +140,31 @@ export default function Contato() {
               </div>
             </div>
 
-            <p className="mt-5 text-[0.875rem] text-tinta-tenue">
-              Recebeu uma mensagem em nome do escritório e quer confirmar?{' '}
-              <Link
-                href="/canais-oficiais"
-                className="underline decoration-verde underline-offset-[0.3em] transition-colors hover:text-verde"
-              >
-                Veja os canais oficiais
-              </Link>
-              .
-            </p>
+            <div className="mt-6 space-y-3 text-[0.875rem] leading-relaxed text-tinta-tenue">
+              <p>
+                Recebeu uma mensagem em nome do escritório e quer confirmar?{' '}
+                <Link
+                  href="/canais-oficiais"
+                  className="underline decoration-verde underline-offset-[0.3em] transition-colors hover:text-verde"
+                >
+                  Veja os canais oficiais
+                </Link>
+                .
+              </p>
+              {/* O link de privacidade desemboca aqui: o destino precisa acolher
+                  esse tipo de pedido, não só falar de consulta. */}
+              <p>
+                Para assuntos de proteção de dados, use o mesmo canal e informe que se trata de uma
+                solicitação de privacidade.{' '}
+                <Link
+                  href="/privacidade"
+                  className="underline decoration-verde underline-offset-[0.3em] transition-colors hover:text-verde"
+                >
+                  Como funciona
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </Secao>
