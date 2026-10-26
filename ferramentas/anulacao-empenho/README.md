@@ -30,7 +30,13 @@ python3 gerar_planilha_xlsx.py empenhos.json -o planilha_anulacao.xlsx
 ```
 
 A data base da idade é a emissão do relatório; use `--referencia DD/MM/AAAA`
-para fixar outra.
+para fixar outra. A natureza da despesa é deduzida do elemento quando o
+relatório inteiro é de uma só natureza — `3.3.90.30` vira "Material de consumo",
+`3.3.90.39` vira "Serviços de terceiros - pessoa jurídica"; `--natureza` força
+outro rótulo.
+
+Vale para qualquer relatório da mesma listagem: consumo, serviços, equipamentos.
+Rode uma vez por relatório.
 
 ## O que a planilha traz
 
@@ -38,7 +44,8 @@ A aba **Empenhos** tem os dados do relatório à esquerda e, à direita e em
 destaque, as colunas que a equipe preenche: decisão, valor a anular, setor
 responsável, justificativa, processo e situação. Decisão, setor e situação são
 listas de escolha; o valor a anular é validado contra o saldo da própria linha.
-A aba **Resumo** totaliza por prioridade, execução, idade e fonte de recurso.
+A aba **Resumo** totaliza por prioridade, execução, idade, fonte de recurso e —
+quando há mais de uma — modalidade de empenho.
 
 ## Critérios aplicados
 
@@ -47,6 +54,12 @@ A aba **Resumo** totaliza por prioridade, execução, idade e fonte de recurso.
 | **Saldo a anular** | Coluna `À Liquidar` do relatório: `empenhado + reforçado − anulado − liquidado`. |
 | **Execução** | `Sem execução` quando nada foi liquidado; senão `Sobra de saldo`. |
 | **Prioridade** | `Alta`: sem execução há mais de 90 dias. `Média`: demais com mais de 60 dias. `Baixa`: até 60 dias. |
+
+**Empenho estimativo (`ES`) pede leitura diferente.** Ele cobre despesa
+continuada de valor não exato — concessionárias, tarifas bancárias — e é
+empenhado para o exercício inteiro. Saldo alto sem liquidação nele costuma ser a
+reserva das faturas que ainda vão chegar, não empenho parado. A prioridade
+automática não sabe disso: ela é mecânica e olha só idade e execução.
 
 Só o saldo a liquidar pode ser anulado. O que já foi liquidado constitui direito
 do credor e, se ainda não pago, segue como obrigação a pagar — não entra na

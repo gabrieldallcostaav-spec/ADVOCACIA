@@ -39,6 +39,30 @@ SITUACOES = ["Em triagem", "Com parecer do setor", "Aprovado para anulação",
 SETORES = ["Execução Orçamentária e Financeira", "Compras e Licitações", "Almoxarifado",
            "Gestor do contrato", "Controle Interno", "Gabinete da Secretaria"]
 
+# Natureza da despesa pelos quatro primeiros grupos do elemento, quando o
+# relatório inteiro é de uma só natureza (é o caso dos relatórios por tipo).
+NATUREZAS = {
+    "3.3.90.30": "Material de consumo",
+    "3.3.90.32": "Material de distribuição gratuita",
+    "3.3.90.36": "Serviços de terceiros - pessoa física",
+    "3.3.90.39": "Serviços de terceiros - pessoa jurídica",
+    "3.3.90.40": "Serviços de tecnologia da informação",
+    "4.4.90.51": "Obras e instalações",
+    "4.4.90.52": "Equipamentos e material permanente",
+}
+# Modalidades de empenho (Lei 4.320/64, art. 60)
+TIPOS = {"OR": "Ordinário", "ES": "Estimativo", "GL": "Global"}
+
+
+def natureza_de(empenhos: list[dict]) -> str:
+    """Nome da natureza quando todos os empenhos partilham o mesmo elemento."""
+    elementos = {".".join(r["categoria"].split(".")[:4]) for r in empenhos}
+    if len(elementos) != 1:
+        return ""
+    elemento = elementos.pop()
+    nome = NATUREZAS.get(elemento)
+    return f"{nome} ({elemento})" if nome else elemento
+
 TINTA = "0D5C66"
 PREENCHER = "FFF7E0"          # amarelo claro: colunas que a equipe preenche
 
@@ -153,7 +177,8 @@ def aba_empenhos(wb: Workbook, linhas: list[tuple]) -> None:
     ws.auto_filter.ref = f"A1:{get_column_letter(len(CABECALHO))}{ultima}"
 
 
-def aba_resumo(wb: Workbook, linhas: list[tuple], cab: dict, referencia: dt.date) -> None:
+def aba_resumo(wb: Workbook, linhas: list[tuple], cab: dict, referencia: dt.date,
+               natureza: str = "") -> None:
     rs = wb.create_sheet("Resumo")
     f_tit = Font(bold=True, color="FFFFFF")
     f_neg = Font(bold=True)
@@ -168,7 +193,11 @@ def aba_resumo(wb: Workbook, linhas: list[tuple], cab: dict, referencia: dt.date
     rs.cell(row=3, column=1,
             value=f'Idade contada até {referencia.strftime("%d/%m/%Y")}. '
                   f'Saldo a anular = coluna "À Liquidar".')
-    linha = 5
+    linha = 4
+    if natureza:
+        rs.cell(row=linha, column=1, value=f"Natureza da despesa: {natureza}")
+        linha += 1
+    linha += 1
 
     def bloco(titulo: str, itens: list[tuple[str, int, Decimal]]) -> None:
         nonlocal linha
@@ -198,6 +227,9 @@ def aba_resumo(wb: Workbook, linhas: list[tuple], cab: dict, referencia: dt.date
     g = agrupa(lambda r, i, e, p: faixa_idade(i))
     ordem = [">180 dias", "91-180 dias", "61-90 dias", "31-60 dias", "Até 30 dias"]
     bloco("Por idade do empenho", [(k, *g[k]) for k in ordem if k in g])
+    g = agrupa(lambda r, i, e, p: TIPOS.get(r["tipo"], r["tipo"]))
+    if len(g) > 1:
+        bloco("Por modalidade de empenho", [(k, *g[k]) for k in sorted(g, key=lambda x: -g[x][1])])
     g = agrupa(lambda r, i, e, p: r["fonte"])
     bloco("Por fonte de recurso", [(k, *g[k]) for k in sorted(g, key=lambda x: -g[x][1])])
 
@@ -215,6 +247,8 @@ def main() -> int:
     ap.add_argument("-o", "--saida", type=Path, default=Path("planilha_anulacao.xlsx"))
     ap.add_argument("--referencia", default=None,
                     help="data base da idade (DD/MM/AAAA); por omissão, a emissão do relatório")
+    ap.add_argument("--natureza", default=None,
+                    help="rótulo da natureza da despesa; por omissão, deduzido do elemento")
     args = ap.parse_args()
 
     if not args.json.is_file():
@@ -230,10 +264,11 @@ def main() -> int:
     else:
         referencia = dt.date.today()
 
+    natureza = args.natureza or natureza_de(dados["empenhos"])
     linhas = prepara(dados["empenhos"], referencia)
     wb = Workbook()
     aba_empenhos(wb, linhas)
-    aba_resumo(wb, linhas, cab, referencia)
+    aba_resumo(wb, linhas, cab, referencia, natureza)
     wb.save(args.saida)
 
     total = sum(dec(r["a_liquidar"]) for r, *_ in linhas)
