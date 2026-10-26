@@ -1,0 +1,7 @@
+# Nenhum dado de empenho entra neste repositório, que é público.
+# Os relatórios e tudo o que deles se extrai ficam apenas na máquina de quem roda.
+*.pdf
+*.json
+*.xlsx
+*.csv
+*.html
